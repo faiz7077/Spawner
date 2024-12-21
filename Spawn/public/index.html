@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -82,5 +82,120 @@
     <h1>Google Meet Bot</h1>
     <button onclick="runBot()">Start Meet Bot</button>
   </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Meet Bot</title>
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(45deg, #ff6ec7, #ff8a00);
+      animation: gradientBackground 10s ease infinite;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      transition: background 1s ease;
+    }
+
+    /* Gradient background animation */
+    @keyframes gradientBackground {
+      0% {
+        background: linear-gradient(45deg, #ff6ec7, #ff8a00);
+      }
+      50% {
+        background: linear-gradient(45deg, #00bcd4, #8e24aa);
+      }
+      100% {
+        background: linear-gradient(45deg, #ff6ec7, #ff8a00);
+      }
+    }
+
+    /* Title text styling with animation */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: textAnimation 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes textAnimation {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    /* Button styling */
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      background-color: #388e3c;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+  <script>
+    async function runBot() {
+      try {
+        const response = await fetch('/run-bot', { method: 'POST' });
+        if (response.ok) {
+          const result = await response.json();
+          alert(`Bot executed: ${result.message}`);
+        } else {
+          alert(`Error: ${response.statusText}`);
+        }
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Google Meet Bot</h1>
+  <button onclick="runBot()">Start Meet Bot</button>
 </body>
 </html>
