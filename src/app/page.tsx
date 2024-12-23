@@ -1,3 +1,4 @@
+'use client'; 
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -10,8 +11,28 @@ import {
 import { CheckCircle, MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const runBot = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/run-bot', { method: 'POST' });
+      const data = await response.json();
+      if (response.ok) {
+        setMessage(data.message);
+      } else {
+        setMessage(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      setMessage(`Error: ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
   const plans = [
     {
       name: 'Free Plan',
@@ -58,8 +79,8 @@ export default function Home() {
                 <Link href="#pricing">Pricing</Link>
                 <Link href="#about">About</Link>
               </nav>
-              <Button className="bg-blue-600 text-white hover:bg-blue-700">
-                <Link href="/dashboard">Login</Link>
+              <Button onClick={runBot} className="bg-blue-600 text-white hover:bg-blue-700">
+              Start Bot
               </Button>
             </div>
 

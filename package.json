@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "next dev",
-    "dev:backend": "tsc -b && node dist/index.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

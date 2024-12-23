@@ -14,7 +14,7 @@ const chrome_1 = require("selenium-webdriver/chrome");
 function openMeet(driver) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield driver.get('https://meet.google.com/jmj-stfa-urv');
+            yield driver.get('https://meet.google.com/qcn-swii-ijq');
             const popupButton = yield driver.wait(selenium_webdriver_1.until.elementLocated(selenium_webdriver_1.By.xpath('//span[contains(text(), "Got it")]')), 10000);
             yield popupButton.click();
             const nameInput = yield driver.wait(selenium_webdriver_1.until.elementLocated(selenium_webdriver_1.By.xpath('//input[@placeholder="Your name"]')), 10000);
