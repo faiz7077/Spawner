@@ -1,89 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Meet Bot</title>
-  <style>
-    /* General styling */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fc;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      box-sizing: border-box;
-    }
 
-    h1 {
-      color: #333;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      color: #fff;
-      background-color: #4CAF50;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #45a049;
-      transform: scale(1.05);
-    }
-
-    button:active {
-      background-color: #388e3c;
-    }
-
-    button:focus {
-      outline: none;
-    }
-
-    /* Responsive design */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      button {
-        font-size: 1rem;
-        padding: 12px 24px;
-      }
-    }
-  </style>
-  <script>
-    async function runBot() {
-      try {
-        const response = await fetch('/run-bot', { method: 'POST' });
-        if (response.ok) {
-          const result = await response.json();
-          alert(`Bot executed: ${result.message}`);
-        } else {
-          alert(`Error: ${response.statusText}`);
-        }
-      } catch (error) {
-        alert(`Error: ${error.message}`);
-      }
-    }
-  </script>
-</head>
-<body>
-  <div>
-    <h1>Google Meet Bot</h1>
-    <button onclick="runBot()">Start Meet Bot</button>
-  </div>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,69 +16,55 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: linear-gradient(45deg, #ff6ec7, #ff8a00);
-      animation: gradientBackground 10s ease infinite;
-      color: white;
+      background-color: #f4f4f4;
+      color: #333;
       text-align: center;
-      overflow: hidden;
-      transition: background 1s ease;
     }
 
-    /* Gradient background animation */
-    @keyframes gradientBackground {
-      0% {
-        background: linear-gradient(45deg, #ff6ec7, #ff8a00);
-      }
-      50% {
-        background: linear-gradient(45deg, #00bcd4, #8e24aa);
-      }
-      100% {
-        background: linear-gradient(45deg, #ff6ec7, #ff8a00);
-      }
-    }
-
-    /* Title text styling with animation */
+    /* Title styling */
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
-      animation: textAnimation 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes textAnimation {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-      100% {
-        transform: scale(1.1);
-        opacity: 1;
-      }
+      color: #555;
+      animation: fadeIn 2s ease-in-out;
     }
 
     /* Button styling */
     button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+      padding: 12px 24px;
+      font-size: 1rem;
       color: #fff;
-      background-color: #4CAF50;
+      background-color: #007BFF;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     button:hover {
-      background-color: #45a049;
+      background-color: #0056b3;
       transform: scale(1.05);
     }
 
     button:active {
-      background-color: #388e3c;
+      background-color: #004085;
     }
 
     button:focus {
       outline: none;
+    }
+
+    /* Fade-in animation for the heading */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive Design */
@@ -173,8 +74,8 @@
       }
 
       button {
-        font-size: 1rem;
-        padding: 12px 24px;
+        font-size: 0.9rem;
+        padding: 10px 20px;
       }
     }
   </style>
